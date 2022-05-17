@@ -4,14 +4,15 @@ This will find duplicates in a csv
 
 ## How to Use
 
-1. Install Python3
-2. Download this repo
+1. Install Python3 https://docs.python-guide.org/starting/install3/osx/
+2. Download this repo (click the green code button at the top right and then download zip)
 3. save your csv file in the same folder as this repo
 4. open a terminal window and navigate to the directory where you saved this repo
-5. once in the directory run ``python3 ./dupChecker.py {your_filename.csv} {column_name}``
+5. once in the directory run 
+``python3 ./dupChecker.py {your_filename.csv} {column_name}``
  {column_name} is optional. If it is excluded, the first column in the csv will be checked for duplicates
 
-## What you see
+## Output you will see
 
 The program produces output in 3 places
 

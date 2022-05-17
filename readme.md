@@ -1,6 +1,6 @@
 # Duplicate Finder
 
-This will find duplicates in a csv
+This will find duplicates in a single column of a csv
 
 ## How to Use
 

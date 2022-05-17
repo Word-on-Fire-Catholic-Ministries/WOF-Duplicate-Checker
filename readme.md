@@ -12,8 +12,12 @@ This will find duplicates in a single column of a csv
 ``python3 ./dupChecker.py {your_filename.csv} {column_name}``
  {column_name} is optional. If it is excluded, the first column in the csv will be checked for duplicates
 
-## Example
+## Examples
 ``python3 ./dupChecker.py input.csv state``
+
+``python3 ./dupChecker.py input.csv``
+
+``python3 ./dupChecker.py dup_emails_may_2.csv email``
 
 ## Output you will see
 

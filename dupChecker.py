@@ -33,10 +33,13 @@ columnNameToCheck = ''
 if(len(sys.argv) >= 3):
     columnNameToCheck = sys.argv[2]
 
-duplicateOccurenceCount = {} # = pieceOfData => frequency
+duplicateOccurenceCount = {} # = pieceOfData => int
+duplicateRowNumbers = {} # pieceOfData => [int, int, int]
 duplicateRows = {} # pieceOfData => [row, row, row]
 
 duplicatesFound = 0
+
+headerArray = []
 
 with open(filename) as input:
     csvReader = csv.reader(input)
@@ -46,39 +49,54 @@ with open(filename) as input:
         if(currentRowNumber == 0 and columnNameToCheck != ''):
             columnToCheck = verifyFirstColumnExists(row, columnNameToCheck)
             currentRowNumber = currentRowNumber + 1
+            headerArray = row #store this when writing output out later
             continue
 
-        if(row[columnToCheck] in duplicateOccurenceCount):
+        if(row[columnToCheck] in duplicateOccurenceCount): #duplicate found
             duplicateOccurenceCount[row[columnToCheck]] = duplicateOccurenceCount[row[columnToCheck]] + 1
-            duplicateRows[row[columnToCheck]].append(currentRowNumber)
+            duplicateRowNumbers[row[columnToCheck]].append(currentRowNumber)
+            duplicateRows[row[columnToCheck]].append(row)
             duplicatesFound = duplicatesFound + 1
-        else:
+        
+        else: # Not a duplicate
             duplicateOccurenceCount[row[columnToCheck]] =  1
-            duplicateRows[row[columnToCheck]] = [currentRowNumber]
+            duplicateRowNumbers[row[columnToCheck]] = [currentRowNumber]
+            duplicateRows[row[columnToCheck]] = [row]
         
         currentRowNumber = currentRowNumber + 1
 input.close()
 
 print(str(duplicatesFound) + " duplicates found")
 
-for key in duplicateRows:
-    if(len(duplicateRows[key]) > 1):
+for key in duplicateRowNumbers:
+    if(len(duplicateRowNumbers[key]) > 1):
         print(key + " is a duplicate among " + str(duplicateOccurenceCount[key]) + " rows ")
-        for rowNum in duplicateRows[key]:
-            print("\trow "+str(rowNum))
+        for rowNum in duplicateRowNumbers[key]:
+            print(str(rowNum))
 
 ###
-# Write Output
-with open('./output.csv', 'w') as output:
-    output.write("Checking "+filename + " for duplicates...\n")
+# Write Summary to a txt file
+###
+with open('./summary.txt', 'w') as output:
+    output.write("Checked "+filename + " for duplicates\n")
     output.write(str(duplicatesFound) + " duplicates found\n")
-    for key in duplicateRows:
-        if(len(duplicateRows[key]) > 1):
+    for key in duplicateRowNumbers:
+        if(len(duplicateRowNumbers[key]) > 1):
             output.write(key + " is a duplicate among " + str(duplicateOccurenceCount[key]) + " rows \n")
-            for rowNum in duplicateRows[key]:
+            for rowNum in duplicateRowNumbers[key]:
                 output.write("\trow "+str(rowNum)+"\n")
 
 output.close()
 
+###
+# Write Duplicates to a csv file
+###
+with open('./duplicates.csv', 'w') as output_csv:
+    writer = csv.writer(output_csv)
+    writer.writerow(headerArray)
+    for key in duplicateRows:
+        if(len(duplicateRows[key]) > 1):
+            for row in duplicateRows[key]:
+                writer.writerow(row)
 
-
+output_csv.close()

@@ -9,7 +9,9 @@ This will find duplicates in a single column of a csv
 3. Save your csv data file in the same folder as this repo.
 4. Open a terminal window and navigate to the directory where you saved this repo using cd.
 5. Once in the directory run the followng command
+
 ``python3 ./dupChecker.py {your_filename.csv} {column_name}``
+
  {column_name} is optional. If it is excluded, the first column in the csv will be checked for duplicates
 
 ## Examples
@@ -18,6 +20,17 @@ This will find duplicates in a single column of a csv
 ``python3 ./dupChecker.py input.csv``
 
 ``python3 ./dupChecker.py dup_emails_may_2.csv email``
+
+``python3 ./dupChecker.py dup_emails_may_2.csv "subscription id"``
+
+### Explanation of the command
+``python3`` indicates that you will be executing a python script
+
+``./dupChecker.py`` indicates that the python script you are executing is in the current directory (./) and its name is "dupChecker.py"
+
+``input.csv`` or ``dup_emails_may_2.csv`` are names of input files. Replace these with whatever name your data file has. It is recommended to use a filename without spaces or special characters in it.
+
+``state`` or ``email`` or ``subscription id`` is optional and is the name of the column of your data file that you want to check duplicates on. If the column name has a space in it like "subscription id" put the name in double quotes like it is above.
 
 ## Output you will see
 

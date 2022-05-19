@@ -54,3 +54,12 @@ You should see the same output from summary.txt in the terminal window as well.
 View this loom video for help if you are from Word on Fire.
 
 https://www.loom.com/share/50f63a0cabf24e65ac29335b476adb8c 
+
+# CSV Files
+This program can be used with any sort of data and is not limited to Liturgy of the Hours data. The only important constraint is that it only works with .csv files (A csv [comma separated value] file is a plain text file that separates the data that form the columns of a spreadsheet using commas). A CSV can easily be generated from any Numbers, Excel, or Google Sheets file. 
+
+Numbers to CSV https://intercom.help/snappy-kraken/en/articles/4248897-how-do-i-convert-a-mac-numbers-file-to-csv
+
+Google Sheets to CSV https://howchoo.com/google/create-a-csv-from-a-google-spreadsheet
+
+Excel to CSV http://www.wvbar.org/wp-content/uploads/2015/07/CSV-Instructions.pdf

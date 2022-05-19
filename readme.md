@@ -7,8 +7,8 @@ This will find duplicates in a single column of a csv
 1. Install Python3 https://flaviocopes.com/python-installation-macos/
 2. Download this repo (click the green code button at the top right and then download zip).
 3. Save your csv data file in the same folder as this repo.
-4. Open a terminal window and navigate to the directory where you saved this repo using cd.
-5. Once in the directory run the followng command
+4. Open a terminal window and navigate to the folder where you saved. Right click on the finder window and click services and then click New Termianl at Folder
+5. Once in the directory run the followng command from the terminal window:
 
 ``python3 ./dupChecker.py {your_filename.csv} {column_name}``
 

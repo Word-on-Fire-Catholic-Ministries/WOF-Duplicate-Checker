@@ -47,3 +47,10 @@ All of the duplicates are listed here and essentially extracted from your origin
 ### console output
 
 You should see the same output from summary.txt in the terminal window as well.
+
+
+# Tutorial
+
+View this loom video for help if you are from Word on Fire.
+
+https://www.loom.com/share/50f63a0cabf24e65ac29335b476adb8c 

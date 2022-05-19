@@ -17,7 +17,7 @@ def verifyFirstColumnExists(csvHeader, columnName):
     exit("Column name '"+columnName + "' is not in the top row of the csv. Try again.")
 
 ###
-#Take filename from command line. If no arg, use 'input.csv'
+#Take filename from command line.
 ###
 filename = ''
 if(len(sys.argv) < 2):
